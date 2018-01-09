@@ -60,6 +60,7 @@
 
 - (void)notifyYValue:(NgKeyboardTracker *)tracker {
   CGRect kbframe = [[NgKeyboardTracker sharedTracker] keyboardCurrentFrameForView:self.view];
+  NSLog(@"Appearence state: %@", NgAppearanceStateAsString([tracker appearanceState]));
   NSLog(@"Keyboard Y value: %f", kbframe.origin.y);
   [KeyboardManager keyboardUpdated:[NSNumber numberWithDouble:kbframe.origin.y]];
 }

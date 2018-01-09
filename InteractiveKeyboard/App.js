@@ -40,8 +40,10 @@ export default class App extends React.PureComponent{
 
         const myModuleEvt = new NativeEventEmitter(NativeModules.KeyboardManager)
         myModuleEvt.addListener('KeyboardUpdated', (data) => {
-            Animated.spring(this.state.keyboardY, {
-                toValue: data.payload - 736
+            Animated.timing(this.state.keyboardY, {
+                toValue: data.payload - 736,
+                duration: 0,
+                useNativeDriver: true,
             }).start()
         })
     }
